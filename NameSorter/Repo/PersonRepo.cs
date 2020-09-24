@@ -47,7 +47,11 @@ namespace NameSorter.Repo
             //
             foreach (var name in rawNames)
             {
-                persons.Add(new Person(name));
+                // Make sure the line is not empty or having all spaces or tabs
+                if (!string.IsNullOrEmpty(name.Trim()))
+                {
+                    persons.Add(new Person(name));
+                }
             }
             return persons;
         }
